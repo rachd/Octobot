@@ -86,3 +86,7 @@ audio.form_field {
     padding: 20px;
     margin: 100px auto 0;
 }
+
+.submitted input.ng-invalid {
+    border: 1px solid red;
+}

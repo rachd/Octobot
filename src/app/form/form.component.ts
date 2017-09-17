@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ElementRef } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
 //Grab everything with import 'rxjs/Rx';
@@ -15,10 +15,16 @@ import 'rxjs/add/operator/catch';
 })
 export class FormComponent {
     botForm = new FormGroup ({
-        Name: new FormControl(),
-        Description: new FormControl(),
+        Name: new FormControl(null, [
+            Validators.required,
+            Validators.minLength(1)]),
+        Description: new FormControl(null, [
+            Validators.required,
+            Validators.minLength(1)]),
         Voice: new FormControl("Joanna"),
-        Url: new FormControl
+        Url: new FormControl(null, [
+            Validators.required,
+            Validators.minLength(1)])
     })
 
     baseUrl = "https://simoni-hacks.herokuapp.com/bot";
@@ -29,25 +35,29 @@ export class FormComponent {
     unsubmitted = true;
     success = false;
 
-    constructor(private http: Http) {}
+    constructor(private http: Http, private elementRef: ElementRef) {}
 
     submit() {
-        let headers = new Headers();
-        this.unsubmitted = false;
-        headers.append('Content-Type', 'application/x-www-form-urlencoded'); 
-        let body = new URLSearchParams();
-        body.set('Name', this.botForm.value.Name);
-        body.set('Description', this.botForm.value.Description);
-        body.set('Voice', this.botForm.value.Voice);
-        body.set('ClarificationPrompt', "Could you say that again?");
-        body.set('Url', this.botForm.value.Url); 
-        return this.http.post(this.baseUrl, `Name=${this.botForm.value.Name}&Voice=${this.botForm.value.Voice}&ClarificationPrompt=Again&Description=${this.botForm.value.Description}`, { headers: headers })
-            .map((response: Response) => {
-                console.log(response);
-                this.success = true;
-            })
-            .catch(this.handleError)
-            .subscribe();
+        // this.elementRef.nativeElement.addClass("submitted");
+        this.elementRef.nativeElement.querySelector('form').classList.add("submitted");
+        if (this.botForm.status == "VALID") {
+            let headers = new Headers();
+            this.unsubmitted = false;
+            headers.append('Content-Type', 'application/x-www-form-urlencoded'); 
+            let body = new URLSearchParams();
+            body.set('Name', this.botForm.value.Name);
+            body.set('Description', this.botForm.value.Description);
+            body.set('Voice', this.botForm.value.Voice);
+            body.set('ClarificationPrompt', "Could you say that again?");
+            body.set('Url', this.botForm.value.Url); 
+            return this.http.post(this.baseUrl, `Name=${this.botForm.value.Name}&Voice=${this.botForm.value.Voice}&ClarificationPrompt=Again&Description=${this.botForm.value.Description}`, { headers: headers })
+                .map((response: Response) => {
+                    console.log(response);
+                    this.success = true;
+                })
+                .catch(this.handleError)
+                .subscribe();
+        }
     }
 
     private handleError(error: any) {
