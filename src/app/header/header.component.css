@@ -1,0 +1,22 @@
+:host {
+    background-color: #016ED4;
+    color: #fff;
+    display: block;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header_title,
+.header_link {
+    padding: 10px;
+}
+
+.header_link:hover {
+    text-decoration: underline;
+}

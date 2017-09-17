@@ -1,1 +1,17 @@
-<p>form</p>
+<form [formGroup]="botForm" novalidate>
+<h2>Create A Bot</h2>
+<label>Name:</label>
+  <input formControlName="name">
+  <label>Voice:</label>
+  <select formControlName="voice">
+    <option>Joanna</option>
+    <option>Salli</option>
+    <option>Kimberly</option>
+    <option>Kendra</option>
+    <option>Ivy</option>
+    <option>Justin</option>
+    <option>Joey</option>
+  </select>
+  <ob-form-audio [voice]=botForm.value.voice></ob-form-audio>
+  <button (click)="submit()" type="button">Create My Bot</button>
+</form>

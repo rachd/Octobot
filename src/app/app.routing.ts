@@ -3,6 +3,7 @@ import { IRouting } from './shared/interfaces';
 
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
+import { FormAudioComponent } from './form/form-audio.component';
 
 const routes: Routes = [
   { path: 'create', component: FormComponent },
@@ -12,5 +13,5 @@ const routes: Routes = [
 
 export const appRouting: IRouting = {
     routes: RouterModule.forRoot(routes),
-    components: [ FormComponent, HomeComponent]
+    components: [ FormComponent, HomeComponent, FormAudioComponent]
 };

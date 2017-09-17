@@ -1,0 +1,14 @@
+:host {
+    display: block;
+    background-color: #0296E3;
+    color: #fff;
+    padding: 20px;
+    position: fixed; 
+    width: 100%;
+    bottom: 0;
+}
+
+.footer {
+    max-width: 1000px;
+    margin: 0 auto;
+}

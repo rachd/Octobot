@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ob-form',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  
+    botForm = new FormGroup ({
+        name: new FormControl(),
+        voice: new FormControl("Joanna")
+    })
 }

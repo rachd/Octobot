@@ -6,11 +6,15 @@ import { HttpModule } from '@angular/http';
 import { appRouting } from './app.routing';
 import { CoreModule }   from './core/core.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     appRouting.components,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +24,6 @@ import { AppComponent } from './app.component';
     appRouting.routes
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HeaderComponent, FooterComponent]
 })
 export class AppModule { }

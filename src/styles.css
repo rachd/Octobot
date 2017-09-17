@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+    font-family: 'Muli', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #EDEBE4;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

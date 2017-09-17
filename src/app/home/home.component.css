@@ -1,0 +1,24 @@
+:host {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.home_title {
+    margin-top: 20px;
+}
+
+.home_description {
+    margin-bottom: 50px;
+}
+
+.home_button {
+    padding: 10px 20px;
+    border: 3px solid #0F0035;
+}
+
+.home_button:hover {
+    text-decoration: underline;
+}
