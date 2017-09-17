@@ -23,6 +23,8 @@ export class FormComponent {
 
     baseUrl = "https://simoni-hacks.herokuapp.com/bot";
 
+    contents = `<h1>Your bot is created</h1>`;
+
     constructor(private http: Http) {}
 
     submit() {
@@ -32,6 +34,7 @@ export class FormComponent {
         body.set('Name', this.botForm.value.Name);
         body.set('Description', this.botForm.value.Description);
         body.set('Voice', this.botForm.value.Voice);
+        body.set('ClarificationPrompt', "Could you say that again?");
         body.set('Url', this.botForm.value.Url); 
         
         return this.http.post(this.baseUrl, body, { headers: headers })
