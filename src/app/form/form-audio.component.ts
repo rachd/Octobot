@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ob-form-audio',
-  template: `<p>Listen to a sample</p><audio controls src="{{file}}"></audio>`
+  template: `<p class="form_label">Sample</p><audio class="form_field" controls src="{{file}}"></audio>`,
+  styleUrls: ["./form.component.css"]
 })
 export class FormAudioComponent implements OnChanges {
     @Input() voice: String;

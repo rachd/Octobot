@@ -6,7 +6,7 @@
 
 body {
     margin: 0;
-    background-color: #EDEBE4;
+    background-color: #E6E7E8;
 }
 
 h1 {
@@ -16,4 +16,9 @@ h1 {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+app-container {
+    display: block;
+    padding-bottom: 100px;
 }

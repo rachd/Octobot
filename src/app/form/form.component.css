@@ -1,5 +1,75 @@
-:host {
-    max-width: 1000px;
-    margin: 0 auto;
+.form {
+    max-width: 500px;
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+}
+
+.form_title {
+    text-align: center;
+    color: #F99D2E;
+    font-size: 30px;
+}
+
+.form_label {
+    color: #000;
+    font-weight: 800;
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 40px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.form_label--voice {
+    margin-bottom: 30px;
+}
+
+.form_select {
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+    height: 30px;
+    overflow: hidden;
+    width: 240px;
+    background-color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form_select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 268px;
+ }
+
+ .form_select select:focus {
+     outline: none;
+ }
+
+input.form_field {
+    width: calc(100% - 150px);
+    height: 30px;
+    border-radius: 2px;
+    border: none;
+    display: inline-block;
+}
+
+audio.form_field {
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100% - 150px);
+    margin-left: 3px;
+}
+
+.form_button {
+    background-color: #EF9033;
+    color: #fff;
+    border: 3px solid #F99D2E;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 7px 10px;
+    margin: 30px auto 0;
     display: block;
 }

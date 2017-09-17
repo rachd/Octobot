@@ -1,17 +1,33 @@
-<form [formGroup]="botForm" novalidate>
-<h2>Create A Bot</h2>
-<label>Name:</label>
-  <input formControlName="name">
-  <label>Voice:</label>
-  <select formControlName="voice">
-    <option>Joanna</option>
-    <option>Salli</option>
-    <option>Kimberly</option>
-    <option>Kendra</option>
-    <option>Ivy</option>
-    <option>Justin</option>
-    <option>Joey</option>
-  </select>
-  <ob-form-audio [voice]=botForm.value.voice></ob-form-audio>
-  <button (click)="submit()" type="button">Create My Bot</button>
+<form class="form" [formGroup]="botForm" novalidate>
+<h2 class="form_title">Create A Bot</h2>
+  <div class="form_row">
+    <label class="form_label">Name</label>
+    <input class="form_field" formControlName="Name">
+  </div>
+  <div class="form_row">
+    <label class="form_label">Description</label>
+    <input class="form_field" formControlName="Description">
+  </div>
+  <div class="form_row">
+    <label class="form_label form_label--voice">Voice</label>
+    <div class="form_select">
+      <select class="form_field" formControlName="Voice">
+        <option>Joanna</option>
+        <option>Salli</option>
+        <option>Kimberly</option>
+        <option>Kendra</option>
+        <option>Ivy</option>
+        <option>Justin</option>
+        <option>Joey</option>
+      </select>
+    </div>
+  </div>
+  <div class="form_row">
+    <ob-form-audio [voice]=botForm.value.Voice></ob-form-audio>
+  </div>
+  <div class="form_row">
+    <label class="form_label">FAQ Url</label>
+    <input class="form_field" formControlName="Url">
+  </div>
+  <button class="form_button" (click)="submit()" type="button">Create My Bot</button>
 </form>

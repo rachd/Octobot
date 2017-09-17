@@ -2,8 +2,13 @@
     display: block;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
     text-align: center;
+}
+
+.home_logo {
+    width: 500px;
+    max-width: 90%;
 }
 
 .home_title {
