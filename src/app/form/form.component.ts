@@ -41,8 +41,7 @@ export class FormComponent {
         body.set('Voice', this.botForm.value.Voice);
         body.set('ClarificationPrompt', "Could you say that again?");
         body.set('Url', this.botForm.value.Url); 
-        
-        return this.http.post(this.baseUrl, body, { headers: headers })
+        return this.http.post(this.baseUrl, `Name=${this.botForm.value.Name}&Voice=${this.botForm.value.Voice}&ClarificationPrompt=Again&Description=${this.botForm.value.Description}`, { headers: headers })
             .map((response: Response) => {
                 console.log(response);
                 this.success = true;
