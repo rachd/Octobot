@@ -21,17 +21,36 @@ export class FormComponent {
         Url: new FormControl
     })
 
-    baseUrl = "https://simoni-hacks.herokuapp.com/myresource";
+    baseUrl = "https://simoni-hacks.herokuapp.com/bot";
 
     constructor(private http: Http) {}
 
     submit() {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');        
-        return this.http.post(this.baseUrl, this.botForm.value, { headers: headers })
+        headers.append('Content-Type', 'application/x-www-form-urlencoded'); 
+        let body = new URLSearchParams();
+        body.set('Name', this.botForm.value.Name);
+        body.set('Description', this.botForm.value.Description);
+        body.set('Voice', this.botForm.value.Voice);
+        body.set('Url', this.botForm.value.Url); 
+        return this.http.post(this.baseUrl, body, { headers: headers })
             .map((response: Response) => {
                 console.log(response);
-            }
-        );
+            })
+            .catch(this.handleError);
     }
+
+    private handleError(error: any) {
+        console.error('server error:', error);
+        if (error instanceof Response) {
+          let errorMessage = '';
+          try {
+            errorMessage = error.json().error;
+          } catch(err) {
+            errorMessage = error.statusText;
+          }
+          return Observable.throw(errorMessage);
+        }
+        return Observable.throw(error || 'Node.js server error');
+      }
 }

@@ -73,3 +73,7 @@ audio.form_field {
     margin: 30px auto 0;
     display: block;
 }
+
+.form_button:focus {
+    outline: none;
+}
