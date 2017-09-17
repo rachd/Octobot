@@ -33,11 +33,13 @@ export class FormComponent {
         body.set('Description', this.botForm.value.Description);
         body.set('Voice', this.botForm.value.Voice);
         body.set('Url', this.botForm.value.Url); 
+        
         return this.http.post(this.baseUrl, body, { headers: headers })
             .map((response: Response) => {
                 console.log(response);
             })
-            .catch(this.handleError);
+            .catch(this.handleError)
+            .subscribe();
     }
 
     private handleError(error: any) {
