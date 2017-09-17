@@ -23,12 +23,17 @@ export class FormComponent {
 
     baseUrl = "https://simoni-hacks.herokuapp.com/bot";
 
+    loading = `<p>Your bot is being built</p>`;
     contents = `<h1>Your bot is created</h1>`;
+
+    unsubmitted = true;
+    success = false;
 
     constructor(private http: Http) {}
 
     submit() {
         let headers = new Headers();
+        this.unsubmitted = false;
         headers.append('Content-Type', 'application/x-www-form-urlencoded'); 
         let body = new URLSearchParams();
         body.set('Name', this.botForm.value.Name);
@@ -40,6 +45,7 @@ export class FormComponent {
         return this.http.post(this.baseUrl, body, { headers: headers })
             .map((response: Response) => {
                 console.log(response);
+                this.success = true;
             })
             .catch(this.handleError)
             .subscribe();

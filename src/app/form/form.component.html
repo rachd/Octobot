@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="botForm" novalidate>
+<form *ngIf="unsubmitted" class="form" [formGroup]="botForm" novalidate>
 <h2 class="form_title">Create A Bot</h2>
   <div class="form_row">
     <label class="form_label">Name</label>
@@ -31,3 +31,7 @@
   </div>
   <button class="form_button" (click)="submit()" type="button">Create My Bot</button>
 </form>
+
+<div class="form_message" *ngIf="!unsubmitted && !success">Your bot is being built.</div>
+
+<div class="form_message" *ngIf="success">Your bot has been created!</div>

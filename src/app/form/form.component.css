@@ -77,3 +77,12 @@ audio.form_field {
 .form_button:focus {
     outline: none;
 }
+
+.form_message {
+    text-align: center;
+    max-width: 1000px;
+    font-size: 50px;
+    color: #F99D2E;
+    padding: 20px;
+    margin: 100px auto 0;
+}
